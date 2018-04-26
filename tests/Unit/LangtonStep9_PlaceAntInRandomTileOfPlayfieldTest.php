@@ -26,9 +26,10 @@ class LangtonStep9PlaceAntInRandomTileOfPlayfieldTest extends TestCase
 
         // Generate another playfield if the two are exactly the same.
         // This is a consequence of testing randomness :-)
-        while ($playfield2 === $playfield) {
+        do {
             $playfield2 = $this->_generatePlayfield(10, 10);
-        }
+        } while ($playfield2 === $playfield);
+
         $ant2 = $playfield2->getAnt();
 
         // See if a different spawnpoint has been generated.
